@@ -15,7 +15,7 @@
 - `stylelint` — проверяет и исправляет проблемы в стилях (CSS, SCSS) с помощью Stylelint
 - `format` — форматирует весь проект с помощью Prettier
 - `preview` — запускает предпросмотр production-сборки с помощью Vite
-Для сборки production:
+  Для сборки production:
 
 - `npm run build`
 

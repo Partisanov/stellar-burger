@@ -1,11 +1,4 @@
-// Внешний вид и составляющие компонента BurgerConstructor
-// Из библиотеки UI-компонентов возьмите следующие:
-//   элементы списка,
-//   иконки,
-//   кнопку,
-//   типографику,
-//   систему отступов.
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Button,
   ConstructorElement,
@@ -15,20 +8,14 @@ import {
 import { TData } from '../../utils/types.ts';
 import styles from './burger-constructor.module.css';
 import { OrderDetails } from '../order-details/order-details.tsx';
+import { Modal } from '../modal/modal.tsx';
+import { useModal } from '../../hooks/useModal.ts';
 
 export const BurgerConstructor = ({ data }: TData[]) => {
-  const [showOrderDetails, setShowOrderDetails] = useState(false);
+  const { isModalOpen, openModal, closeModal } = useModal();
   // const bun = data.filter(item => item.type === 'bun') думаю в будущем понадобится
   const ingredients = data.filter((item) => item.type !== 'bun');
 
-  const handleOpenOrderDetails = () => {
-    setShowOrderDetails(true);
-  };
-
-  const handleCloseOrderDetails = (e) => {
-    e.stopPropagation();
-    setShowOrderDetails(false);
-  };
   return (
     <div className={`${styles.wrapper} pl-4`}>
       <div className={`${styles.item} mb-4 pl-8 pr-4`}>
@@ -75,12 +62,16 @@ export const BurgerConstructor = ({ data }: TData[]) => {
           type='primary'
           size='large'
           extraClass='ml-10 mr-8'
-          onClick={handleOpenOrderDetails}
+          onClick={openModal}
         >
           Оформить заказ
         </Button>
       </div>
-      {showOrderDetails && <OrderDetails onClose={handleCloseOrderDetails} />}
+      {isModalOpen && (
+        <Modal onClose={closeModal}>
+          <OrderDetails />
+        </Modal>
+      )}
     </div>
   );
 };

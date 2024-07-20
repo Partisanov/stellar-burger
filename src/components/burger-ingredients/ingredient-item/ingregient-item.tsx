@@ -4,23 +4,16 @@ import {
   CurrencyIcon,
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './ingredient-item.module.css';
-import { useState } from 'react';
 import { IngredientDetails } from '../../ingredient-details/ingregient-details.tsx';
+import { useModal } from '../../../hooks/useModal.ts';
+import { Modal } from '../../modal/modal.tsx';
 export const IngredientItem = (props: TData) => {
   const item = props;
-  const [showModal, setShowModal] = useState(false);
-  const handleShow = () => {
-    setShowModal(true);
-  };
-  const handleHide = (e: MouseEvent) => {
-    e.stopPropagation();
-    setShowModal(false);
-  };
-
+  const { isModalOpen, openModal, closeModal } = useModal();
   return (
     <div
       className={styles.item}
-      onClick={handleShow}
+      onClick={openModal}
     >
       <div className='pl-4 pr-4 mb-1'></div>
       <img
@@ -39,11 +32,13 @@ export const IngredientItem = (props: TData) => {
           size='small'
         />
       )}
-      {showModal && (
-        <IngredientDetails
-          item={item}
-          onClose={handleHide}
-        />
+      {isModalOpen && (
+        <Modal
+          caption='Детали ингредиента'
+          onClose={closeModal}
+        >
+          <IngredientDetails item={item} />
+        </Modal>
       )}
     </div>
   );

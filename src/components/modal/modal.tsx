@@ -32,12 +32,11 @@ export const Modal = ({ caption, children, onClose }: IModalProps) => {
       <div className={styles.dialog}>
         <div className={`${styles.header} ml-10 mt-10 mr-10`}>
           <div className=' text text_type_main-large'>{caption}</div>
-          <div className={styles['close-btn']}>
-            <CloseIcon
-              e
-              type='primary'
-              onClick={onClose}
-            />
+          <div
+            className={styles['close-btn']}
+            onClick={onClose}
+          >
+            <CloseIcon type='primary' />
           </div>
         </div>
         {children}

@@ -7,7 +7,6 @@ import useFetch from '../../hooks/useFetch.ts';
 import { TData } from '../../utils/types.ts';
 import { BASE_URL } from '../../utils/constants.ts';
 
-
 function App() {
   const { data, loading, error } = useFetch<TData[]>(BASE_URL);
 

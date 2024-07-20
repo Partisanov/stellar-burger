@@ -1,19 +1,11 @@
-import { Modal } from '../modal/modal.tsx';
 import { TData } from '../../utils/types.ts';
 import styles from './ingredient-details.module.css';
 interface IIngredientDetailsProps {
   item: TData;
-  onClose: () => void;
 }
-export const IngredientDetails = ({
-  item,
-  onClose,
-}: IIngredientDetailsProps) => {
+export const IngredientDetails = ({ item }: IIngredientDetailsProps) => {
   return (
-    <Modal
-      caption='Детали ингредиента'
-      onClose={onClose}
-    >
+    <>
       <div className={styles.details}>
         <div className='pl-5 pr-5 mb-4'>
           <img
@@ -57,6 +49,6 @@ export const IngredientDetails = ({
           </li>
         </ul>
       </div>
-    </Modal>
+    </>
   );
 };

@@ -1,13 +1,8 @@
-// компонент OrderDetails содержит тестовые данные и использует UI-компоненты из библиотеки: иконки, типографику.
 import styles from './order-details.module.css';
-import { Modal } from '../modal/modal.tsx';
 
-interface IOrderDetailsProps {
-  onClose: () => (e) => void;
-}
-export const OrderDetails = ({ onClose }: IOrderDetailsProps) => {
+export const OrderDetails = () => {
   return (
-    <Modal onClose={onClose}>
+    <>
       <div className={`${styles.order} mt-10`}>
         <div className='text text_type_digits-large mb-8'>034536</div>
         <p className='text text_type_main-medium mb-15'>идентификатор заказа</p>
@@ -23,6 +18,6 @@ export const OrderDetails = ({ onClose }: IOrderDetailsProps) => {
           Дождитесь готовности на орбитальной станции
         </p>
       </div>
-    </Modal>
+    </>
   );
 };

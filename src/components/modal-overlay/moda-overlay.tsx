@@ -19,7 +19,7 @@ export const ModalOverlay = ({ onClose, children }: IModalOverlayProps) => {
       className={styles.overlay}
       onClick={onClose}
     >
-      {children}
+      <div onClick={(e) => e.stopPropagation()}>{children}</div>
     </div>,
     root,
   );
