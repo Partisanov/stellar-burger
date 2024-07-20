@@ -1,0 +1,27 @@
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 208px;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow 0.5s ease;
+}
+
+.item:hover {
+  box-shadow: var(--interface-hover-bs);
+  filter: drop-shadow(var(--interface-hover-ds));
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
