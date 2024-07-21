@@ -1,8 +1,8 @@
-import './App.module.css';
+import './app.module.css';
 import { AppHeader } from '../app-header/app-header.tsx';
 import { BurgerConstructor } from '../burger-constructor/burger-constructor.tsx';
 import { BurgerIngredients } from '../burger-ingredients/burger-ingredients.tsx';
-import styles from './App.module.css';
+import styles from './app.module.css';
 import useFetch from '../../hooks/useFetch.ts';
 import { TData } from '../../utils/types.ts';
 import { BASE_URL } from '../../utils/constants.ts';
