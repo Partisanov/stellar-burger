@@ -1,0 +1,13 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  border-radius: 40px;
+  border: 1px dashed var(--interface-modal-bg);
+  transition: border-color 0.3s ease;
+}
+
+.item:hover {
+  border-color: var(--text-primary-light-standart-text);
+}

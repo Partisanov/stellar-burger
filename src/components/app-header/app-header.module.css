@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow:
+    0 0 1px 0 rgb(0 0 0 / 4%),
+    0 4px 8px 0 rgb(0 0 0 / 4%),
+    0 16px 24px 0 rgb(0 0 0 / 4%),
+    0 24px 32px 0 rgb(0 0 0 / 4%);
+  background: var(--interface-modal-bg);
+}
+
+.header_container {
+  max-width: var(--container-width);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: calc(var(--offset-base-size) * 2);
+}
