@@ -1,0 +1,13 @@
+.element {
+  position: relative;
+  width: 100%;
+}
+
+.drag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}

@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint --fix 'src/**/*.{ts,tsx,js,jsx,json}' -c .eslintrc.cjs --color",
@@ -14,14 +14,24 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.24.8",
+    "@reduxjs/toolkit": "^2.2.7",
+    "@types/react-redux": "^7.1.33",
     "@ya.praktikum/react-developer-burger-ui-components": "^1.14.0",
+    "axios": "^1.7.3",
     "core-js": "^3.37.1",
     "eslint-config-prettier": "^9.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dom": "^18.3.1",
+    "react-redux": "^9.1.2",
+    "redux": "^5.0.1",
+    "redux-thunk": "^3.1.0"
   },
   "devDependencies": {
+    "@eslint/js": "9.7.0",
+    "@types/node": "20.14.12",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.15.0",

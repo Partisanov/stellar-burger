@@ -1,25 +1,29 @@
-import React from 'react';
-import { TData } from '../../../utils/types.ts';
 import styles from './ingredients-group.module.css';
-import { IngredientItem } from '../ingredient-item/ingregient-item.tsx';
+import React, { ReactNode, RefObject } from 'react';
+import { TabEnum } from '../../../utils/constants.ts';
 
 interface IIngredientsGroupProps {
-  ingredients: TData[];
+  children?: ReactNode;
   title: string;
+  refSection?: RefObject<HTMLLIElement>;
+  tab: TabEnum;
 }
-export const IngredientsGroup = (props: IIngredientsGroupProps) => {
-  const { ingredients, title } = props;
-  if (!ingredients.length) return <p>Ингредиенты отсутствуют</p>;
+export const IngredientsGroup: React.FC<IIngredientsGroupProps> = ({
+  children,
+  title,
+  refSection,
+  tab,
+}) => {
   return (
-    <>
+    <li
+      className='pt-10 pb-10'
+      ref={refSection}
+      data-tab={tab}
+    >
       <h2 className={'text text_type_main-medium'}>{title}</h2>
       <ul className={`${styles['ingredient-list']}  pt-6 pr-4 pl-4`}>
-        {ingredients.map((item: TData) => (
-          <li key={item._id}>
-            <IngredientItem {...item} />
-          </li>
-        ))}
+        {children}
       </ul>
-    </>
+    </li>
   );
 };

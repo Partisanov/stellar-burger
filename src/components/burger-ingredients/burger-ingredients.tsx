@@ -1,89 +1,104 @@
+import React, { RefObject, useCallback, useMemo, useRef } from 'react';
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
-import React, { useMemo, useRef } from 'react';
-import { IngredientTypes } from '../../utils/constants.ts';
-import { TData } from '../../utils/types.ts';
+
 import { IngredientsGroup } from './ingredients-group/ingredients-group.tsx';
 import styles from './burger-ingredients.module.css';
+import { useSelector } from '../../hooks/redux.ts';
+import {
+  getBunIngredients,
+  getMainIngredients,
+  getSauceIngredients,
+} from '../../services/ingredients/reducer.ts';
+import { TabEnum, tabsLabels } from '../../utils/constants.ts';
+import {
+  getBun,
+  getIngredients,
+} from '../../services/burger-constructor/reducer.ts';
+import { TData } from '../../utils/types.ts';
+import { IngredientItem } from './ingredient-item/ingregient-item.tsx';
 
-export const BurgerIngredients = ({ data }: TData[]) => {
-  const [current, setCurrent] = React.useState(IngredientTypes[0].name);
-  const bunRef = useRef(null);
-  const sauceRef = useRef(null);
-  const mainRef = useRef(null);
+export const BurgerIngredients = () => {
+  const [current, setCurrent] = React.useState<TabEnum>(TabEnum.Buns);
+  const ingredients = useSelector(getIngredients);
+  const bun = useSelector(getBun);
 
-  const groupedIngredients = useMemo(() => {
-    return data.reduce((acc, ingredient) => {
-      if (!acc[ingredient.type]) {
-        acc[ingredient.type] = [];
-      }
-      acc[ingredient.type].push(ingredient);
-      return acc;
-    }, {});
-  }, [data]);
-
-  const { bun, sauce, main } = groupedIngredients;
-
-  const handleTabClick = (name: string) => {
-    setCurrent(name);
-    switch (name) {
-    case 'bun':
-      bunRef.current.scrollIntoView({ behavior: 'smooth' });
-      break;
-    case 'sauce':
-      sauceRef.current.scrollIntoView({ behavior: 'smooth' });
-      break;
-    case 'main':
-      mainRef.current.scrollIntoView({ behavior: 'smooth' });
-      break;
-    default:
-      break;
-    }
+  const refs: Record<TabEnum, RefObject<HTMLLIElement>> = {
+    [TabEnum.Buns]: useRef<HTMLLIElement>(null),
+    [TabEnum.Sauces]: useRef<HTMLLIElement>(null),
+    [TabEnum.Fillings]: useRef<HTMLLIElement>(null),
   };
+
+  const ingredientsSort: Record<TabEnum, TData[]> = {
+    [TabEnum.Buns]: useSelector(getBunIngredients),
+    [TabEnum.Sauces]: useSelector(getSauceIngredients),
+    [TabEnum.Fillings]: useSelector(getMainIngredients),
+  };
+
+  const handleTabClick = useCallback((name: string) => {
+    setCurrent(name as TabEnum);
+    refs[name as TabEnum].current?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
+  const handleScroll = useCallback((e: React.UIEvent<HTMLElement>) => {
+    const scrollTop = e.currentTarget.scrollTop;
+    Object.values(refs).forEach((ref) => {
+      const tabTop = ref.current?.getBoundingClientRect().top!;
+      if (scrollTop > tabTop - 30) {
+        const tab = ref.current?.getAttribute('data-tab') as TabEnum;
+        setCurrent(tab);
+      }
+    });
+  }, []);
+
+  const counts: Record<string, number> = useMemo(() => {
+    const ingredientCounts: Record<string, number> = {};
+    if (bun) ingredientCounts[bun._id] = 2;
+    ingredients.forEach((ingredient) => {
+      if (ingredientCounts[ingredient._id]) {
+        ingredientCounts[ingredient._id] += 1;
+      } else {
+        ingredientCounts[ingredient._id] = 1;
+      }
+    });
+    return ingredientCounts;
+  }, [ingredients, bun]);
 
   return (
     <div className={styles.wrapper}>
       <div style={{ display: 'flex' }}>
-        {IngredientTypes &&
-          IngredientTypes.map((item) => (
-            <Tab
-              key={item.name}
-              value={item.name}
-              active={current === item.name}
-              onClick={() => handleTabClick(item.name)}
-            >
-              {item.title}
-            </Tab>
-          ))}
+        {Object.keys(refs).map((item) => (
+          <Tab
+            key={item}
+            value={item}
+            active={current === item}
+            onClick={handleTabClick}
+          >
+            {tabsLabels[item as TabEnum]}
+          </Tab>
+        ))}
       </div>
 
-      <ul className={`${styles.ingredients_list} custom-scroll`}>
-        <li
-          className='pt-10 pb-10'
-          ref={bunRef}
-        >
+      <ul
+        className={`${styles.ingredients_list} custom-scroll`}
+        onScroll={handleScroll}
+      >
+        {Object.entries(refs).map(([tab, ref]) => (
           <IngredientsGroup
-            ingredients={bun}
-            title='Булки'
-          />
-        </li>
-        <li
-          className='pt-10 pb-10'
-          ref={sauceRef}
-        >
-          <IngredientsGroup
-            ingredients={sauce}
-            title='Соусы'
-          />
-        </li>
-        <li
-          className='pt-10 pb-10'
-          ref={mainRef}
-        >
-          <IngredientsGroup
-            ingredients={main}
-            title='Начинка'
-          />
-        </li>
+            key={tab}
+            tab={tab as TabEnum}
+            refSection={ref}
+            title={tabsLabels[tab as TabEnum]}
+          >
+            {ingredientsSort[tab as TabEnum].map((item: TData) => (
+              <li key={item._id}>
+                <IngredientItem
+                  item={item}
+                  count={counts[item._id]}
+                />
+              </li>
+            ))}
+          </IngredientsGroup>
+        ))}
       </ul>
     </div>
   );

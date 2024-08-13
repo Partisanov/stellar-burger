@@ -15,6 +15,7 @@ export type TData = {
   image_mobile: string;
   image_large: string;
   __v: number;
+  key?: string;
 };
 export type TIconNavLink = {
   href?: string;
@@ -27,3 +28,8 @@ export type TIngredientType = {
   name: string;
   title: string;
 };
+
+export enum TargetType {
+  BurgerConstructor = 'burgerConstructor',
+  SortIngredient = 'sortIngredient',
+}
