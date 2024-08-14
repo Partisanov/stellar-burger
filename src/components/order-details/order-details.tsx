@@ -1,10 +1,14 @@
 import styles from './order-details.module.css';
 
-export const OrderDetails = () => {
+interface IOrderDetailsProps {
+  orderId: number;
+}
+
+export const OrderDetails: React.FC<IOrderDetailsProps> = ({ orderId }) => {
   return (
     <>
       <div className={`${styles.order} mt-10`}>
-        <div className='text text_type_digits-large mb-8'>034536</div>
+        <div className='text text_type_digits-large mb-8'>{orderId}</div>
         <p className='text text_type_main-medium mb-15'>идентификатор заказа</p>
         <img
           className={`${styles.image} mb-15`}

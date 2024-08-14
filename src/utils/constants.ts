@@ -1,18 +1,13 @@
-import { TIngredientType } from './types.ts';
+export enum TabEnum {
+  Buns = 'buns',
+  Sauces = 'sauces',
+  Fillings = 'fillings',
+}
 
-export const IngredientTypes: TIngredientType[] = [
-  {
-    name: 'bun',
-    title: 'Булки',
-  },
-  {
-    name: 'sauce',
-    title: 'Соусы',
-  },
-  {
-    name: 'main',
-    title: 'Начинки',
-  },
-];
+export const tabsLabels: Record<TabEnum, string> = {
+  [TabEnum.Buns]: 'Булки',
+  [TabEnum.Sauces]: 'Соусы',
+  [TabEnum.Fillings]: 'Начинки',
+};
 
-export const BASE_URL = 'https://norma.nomoreparties.space/api/ingredients';
+export const BASE_URL = 'https://norma.nomoreparties.space/api';

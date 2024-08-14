@@ -28,12 +28,12 @@ export const Modal = ({ caption, children, onClose }: IModalProps) => {
       document.removeEventListener('keydown', handleEsc, false);
     };
   }, [handleEsc]);
-  
+
   const handleClose = (e: React.MouseEvent): void => {
     e.stopPropagation();
     onClose();
   };
-  
+
   if (!modalRoot) {
     return null;
   }
