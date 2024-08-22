@@ -6,7 +6,14 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './app-header.module.css';
 import { IconNavLink } from './icon-nav-link/icon-nav-link.tsx';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../services/store.ts';
+import { Pages } from '../../utils/constants.ts';
 export const AppHeader = () => {
+  const {
+    user: { email },
+  } = useSelector((state: RootState) => state.auth);
+
   return (
     <header className={`${styles.header} pb-4 pt-4`}>
       <div className={styles.header_container}>
@@ -16,13 +23,14 @@ export const AppHeader = () => {
               <IconNavLink
                 icon={BurgerIcon}
                 text='Конструктор'
-                isActive
+                to={Pages.home}
               />
             </li>
             <li>
               <IconNavLink
                 icon={ListIcon}
                 text='Лента заказов'
+                to={Pages.order}
               />
             </li>
           </ul>
@@ -30,7 +38,8 @@ export const AppHeader = () => {
         <Logo />
         <IconNavLink
           icon={ProfileIcon}
-          text='Личный кабинет'
+          text={email ? email : 'Личный кабинет'}
+          to={Pages.profile}
         />
       </div>
     </header>
