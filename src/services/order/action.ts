@@ -16,7 +16,7 @@ export const postOrderDetails = createAsyncThunk(
   async (ingredients: string[]) => {
 
       const response = await axios.post<IOrderResponse>(
-        `${BASE_URL}/ordeаrs`,
+        `${BASE_URL}/orders`,
         {
           ingredients,
         },
