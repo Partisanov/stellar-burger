@@ -13,10 +13,10 @@ interface IOrderResponse {
 
 export const postOrderDetails = createAsyncThunk(
   'order/postOrderDetails',
-  async (ingredients: string[], { rejectWithValue }) => {
-    try {
+  async (ingredients: string[]) => {
+
       const response = await axios.post<IOrderResponse>(
-        `${BASE_URL}/orders`,
+        `${BASE_URL}/ordeаrs`,
         {
           ingredients,
         },
@@ -28,8 +28,6 @@ export const postOrderDetails = createAsyncThunk(
         },
       );
       return response.data.order.number;
-    } catch (error) {
-      return rejectWithValue('Не удалось отправить заказ');
-    }
+    
   },
 );

@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { getUser, login, logout, register, updateUser } from './action';
-import { ICustomError, ILoginResponse, IUser } from '../../utils/types.ts';
+import { IApiError, ILoginResponse, IUser } from '../../utils/types.ts';
 
 interface AuthState {
   user: {
@@ -50,7 +50,7 @@ export const authSlice = createSlice({
       )
       .addCase(
         login.rejected,
-        (state, action: PayloadAction<ICustomError | undefined>) => {
+        (state, action: PayloadAction<IApiError | undefined>) => {
           state.isLoading = false;
           state.hasError = true;
           state.errorMessage = action.payload?.message || 'Login failed';
@@ -76,7 +76,7 @@ export const authSlice = createSlice({
       )
       .addCase(
         register.rejected,
-        (state, action: PayloadAction<ICustomError | undefined>) => {
+        (state, action: PayloadAction<IApiError | undefined>) => {
           state.isLoading = false;
           state.hasError = true;
           state.errorMessage = action.payload?.message || 'Registration failed';
@@ -99,7 +99,7 @@ export const authSlice = createSlice({
       })
       .addCase(
         logout.rejected,
-        (state, action: PayloadAction<ICustomError | undefined>) => {
+        (state, action: PayloadAction<IApiError | undefined>) => {
           state.isLoading = false;
           state.hasError = true;
           state.errorMessage = action.payload?.message || 'Logout failed';
@@ -125,7 +125,7 @@ export const authSlice = createSlice({
       )
       .addCase(
         updateUser.rejected,
-        (state, action: PayloadAction<ICustomError | undefined>) => {
+        (state, action: PayloadAction<IApiError | undefined>) => {
           state.isLoading = false;
           state.hasError = true;
           state.errorMessage = action.payload?.message || 'Update failed';
@@ -155,11 +155,11 @@ export const authSlice = createSlice({
       )
       .addCase(
         getUser.rejected,
-        (state, action: PayloadAction<ICustomError | undefined>) => {
+        (state, {error}) => {
           state.isLoading = false;
           state.hasError = true;
           state.errorMessage =
-            action.payload?.message || 'Failed to fetch user';
+            error.message || 'Failed to fetch user';
         },
       );
   },

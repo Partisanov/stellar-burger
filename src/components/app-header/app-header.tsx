@@ -9,6 +9,7 @@ import { IconNavLink } from './icon-nav-link/icon-nav-link.tsx';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../services/store.ts';
 import { Pages } from '../../utils/constants.ts';
+import { Link } from 'react-router-dom';
 export const AppHeader = () => {
   const {
     user: { email },
@@ -35,7 +36,9 @@ export const AppHeader = () => {
             </li>
           </ul>
         </nav>
-        <Logo />
+        <Link to={Pages.home}>
+          <Logo />
+        </Link>
         <IconNavLink
           icon={ProfileIcon}
           text={email ? email : 'Личный кабинет'}

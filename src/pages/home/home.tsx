@@ -1,21 +1,15 @@
 import styles from './home.module.css';
-import { useDispatch, useSelector } from '../../hooks/redux.ts';
-import { useEffect } from 'react';
-import { fetchIngredients } from '../../services/ingredients/action.ts';
+import { useSelector } from '../../hooks/redux.ts';
 import { BurgerIngredients } from '../../components/burger-ingredients/burger-ingredients.tsx';
 import { BurgerConstructor } from '../../components/burger-constructor/burger-constructor.tsx';
 import { Page } from '../../components/page/page.tsx';
 
 export const HomePage = () => {
-  const dispatch = useDispatch();
   const { ingredients, isLoading, error } = useSelector(
     (state) => state.ingredients,
   );
   const hasIngredients = ingredients.length > 0;
-  useEffect(() => {
-    dispatch(fetchIngredients());
-  }, [dispatch]);
-
+  
   return (
     <Page>
       {isLoading && (

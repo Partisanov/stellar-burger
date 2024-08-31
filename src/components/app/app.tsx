@@ -22,6 +22,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ProfileUserInfo } from '../profile-user-info/profile-user-info.tsx';
 import { OrdersHistoryList } from '../orders-history-list/orders-history-list.tsx';
+import { fetchIngredients } from '../../services/ingredients/action.ts';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ function App() {
   const background = location.state && location.state.background;
 
   useEffect(() => {
+    dispatch(fetchIngredients())
     dispatch(getUser());
   }, []);
 

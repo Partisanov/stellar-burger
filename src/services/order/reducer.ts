@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { postOrderDetails } from './action.ts';
+import { toast } from 'react-toastify';
 
 interface OrderState {
   ids: string[];
@@ -30,10 +31,12 @@ export const orderSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.currentOrderId = payload;
+        toast.success('Заказ успешно размещен!');
       })
       .addCase(postOrderDetails.rejected, (state, { error }) => {
         state.isLoading = false;
-        state.error = error.message || null;
+        state.error = error.message || 'Не удалось отправить заказ';
+        toast.error(`Ошибка при размещении заказа!`);
       });
   },
   selectors: {
