@@ -11,3 +11,15 @@ export const tabsLabels: Record<TabEnum, string> = {
 };
 
 export const BASE_URL = 'https://norma.nomoreparties.space/api';
+
+export enum Pages {
+  home = '/',
+  login = '/login',
+  register = '/register',
+  order = '/order',
+  forgotPassword = '/forgot-password',
+  resetPassword = '/reset-password',
+  profile = '/profile',
+  ingredients = '/ingredients/:id',
+  page404 = '/404',
+}

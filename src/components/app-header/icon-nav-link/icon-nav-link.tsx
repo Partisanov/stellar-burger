@@ -1,22 +1,22 @@
 import styles from './icon-nav-link.module.css';
 import { TIconNavLink } from '../../../utils/types.ts';
-export const IconNavLink = ({
-  href = '#',
-  icon: Icon,
-  text,
-  isActive = false,
-}: TIconNavLink) => {
+import { NavLink } from 'react-router-dom';
+export const IconNavLink = ({ to = '#', icon: Icon, text }: TIconNavLink) => {
   return (
-    <a
-      href={href}
-      className={`${styles.item} pt-4 pr-5 pb-4 pl-5`}
+    <NavLink
+      to={to}
+      className={`${styles.item} pt-4 pr-5 pb-4 pl-5 `}
     >
-      <Icon type={isActive ? 'primary' : 'secondary'} />
-      <span
-        className={`text text_type_main-default ml-2 ${isActive ? 'text_color_primary' : 'text_color_inactive'}`}
-      >
-        {text}
-      </span>
-    </a>
+      {({ isActive }) => (
+        <>
+          <Icon type={isActive ? 'primary' : 'secondary'} />
+          <span
+            className={`text text_type_main-default ml-2 ${isActive ? 'text_color_primary' : 'text_color_inactive'}`}
+          >
+            {text}
+          </span>
+        </>
+      )}
+    </NavLink>
   );
 };

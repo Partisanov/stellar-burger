@@ -23,6 +23,9 @@
   /* sizes */
   --offset-base-size: 4px;
   --container-width: 1280px;
+
+  /*notify*/
+  --toastify-toast-width: 400px;
 }
 
 @font-face {
@@ -85,6 +88,9 @@ body {
   font-weight: 400;
   line-height: 24px;
 }
+section {
+  display: contents;
+}
 
 img {
   margin: 0;
@@ -113,4 +119,47 @@ ul {
   flex-direction: column;
   height: 100vh;
   overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+  width: var(--container-width);
+  margin: 0 auto;
+}
+.message-container {
+  display: flex;
+  align-items: center;
+  margin: auto 0;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 180px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.link {
+  color: var(--interface-accent);
+  cursor: pointer;
+}
+.error {
+  color: red !important;
 }

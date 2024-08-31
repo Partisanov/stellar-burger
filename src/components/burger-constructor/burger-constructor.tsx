@@ -29,18 +29,25 @@ import {
   ConstructorItemWithDrag,
 } from './constructor-item/constructor-item.tsx';
 import { postOrderDetails } from '../../services/order/action.ts';
+import { Pages } from '../../utils/constants.ts';
+import { RootState } from '../../services/store.ts';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { Preloader } from '../preloader/preloader.tsx';
 
 interface IBurgerConstructorProps {}
 
 export const BurgerConstructor: React.FC<IBurgerConstructorProps> = () => {
   const { isModalOpen, openModal, closeModal } = useModal();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const ingredients = useSelector(getIngredients);
   const bun = useSelector(getBun);
   let orderId = useSelector(getOrderId);
   const total = useSelector(getTotalAmount);
   const ids = useSelector(getIds);
   const { isLoading } = useSelector((state) => state.order);
+  const { isLogIn } = useSelector((state: RootState) => state.auth);
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: TargetType.BurgerConstructor,
     collect: (monitor) => ({
@@ -48,6 +55,7 @@ export const BurgerConstructor: React.FC<IBurgerConstructorProps> = () => {
       canDrop: monitor.canDrop(),
     }),
   }));
+  const isOrderLoading = useSelector((state) => state.order.isLoading);
 
   useEffect(() => {
     const total = calculateTotal(bun, ingredients);
@@ -69,6 +77,12 @@ export const BurgerConstructor: React.FC<IBurgerConstructorProps> = () => {
   const handleToggleModal = useCallback(
     (open: boolean) => {
       if (open) {
+        if (!isLogIn) {
+          toast.error(
+            'Не удалось оформить заказ. Пожалуйста, войдите в систему.',
+          );
+          navigate(Pages.login);
+        }
         orderId = dispatch(postOrderDetails(ids));
         openModal();
       } else {
@@ -137,7 +151,8 @@ export const BurgerConstructor: React.FC<IBurgerConstructorProps> = () => {
         price={total}
         disabled={!bun || isLoading}
       />
-      {!!orderId && isModalOpen && (
+      {isOrderLoading && <Preloader title='Создание заказа...' />}
+      {!!orderId && !isOrderLoading && isModalOpen && (
         <Modal onClose={() => handleToggleModal(false)}>
           <OrderDetails orderId={orderId} />
         </Modal>
