@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { getUser, login, logout, register, updateUser } from './action';
 import { IApiError, ILoginResponse, IUser } from '../../utils/types.ts';
 
-interface AuthState {
+export interface AuthState {
   user: {
     email: string | null;
     name: string | null;

@@ -10,12 +10,12 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../services/store.ts';
 import { useForm } from '../../hooks/useForm.ts';
 import { useDispatch } from '../../hooks/redux.ts';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { updateUser } from '../../services/auth/action.ts';
 import { toast } from 'react-toastify';
 import { AxiosError } from 'axios';
 
-export const ProfileUserInfo = () => {
+export const ProfileUserInfo:React.FC = () => {
   const dispatch = useDispatch();
   const { user, isLoading } = useSelector((store: RootState) => store.auth);
   const initialFormValues = {

@@ -1,7 +1,9 @@
+import React from 'react';
 import styles from './icon-nav-link.module.css';
 import { TIconNavLink } from '../../../utils/types.ts';
 import { NavLink } from 'react-router-dom';
-export const IconNavLink = ({ to = '#', icon: Icon, text }: TIconNavLink) => {
+
+export const IconNavLink: React.FC<TIconNavLink> = ({ to = '#', icon: Icon, text }) => {
   return (
     <NavLink
       to={to}

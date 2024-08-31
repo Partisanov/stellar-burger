@@ -15,7 +15,7 @@ import { Pages } from '../../utils/constants.ts';
 import { ProtectedRoute } from '../protected-route/protected-route.tsx';
 import { Modal } from '../modal/modal.tsx';
 import { Ingredient } from '../ingredient/ingredient.tsx';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { getUser } from '../../services/auth/action.ts';
 import { useDispatch } from '../../hooks/redux.ts';
 import { ToastContainer } from 'react-toastify';
@@ -24,7 +24,7 @@ import { ProfileUserInfo } from '../profile-user-info/profile-user-info.tsx';
 import { OrdersHistoryList } from '../orders-history-list/orders-history-list.tsx';
 import { fetchIngredients } from '../../services/ingredients/action.ts';
 
-function App() {
+const App: React.FC = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();

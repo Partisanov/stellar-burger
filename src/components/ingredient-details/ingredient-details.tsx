@@ -1,9 +1,10 @@
 import { TData } from '../../utils/types.ts';
 import styles from './ingredient-details.module.css';
+import React from 'react';
 interface IIngredientDetailsProps {
   item: TData;
 }
-export const IngredientDetails = ({ item }: IIngredientDetailsProps) => {
+export const IngredientDetails: React.FC<IIngredientDetailsProps> = ({ item }) => {
   return (
     <>
       <div className={styles.details}>

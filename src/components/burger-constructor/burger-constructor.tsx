@@ -75,15 +75,22 @@ export const BurgerConstructor: React.FC<IBurgerConstructorProps> = () => {
   const isActive = canDrop && isOver;
 
   const handleToggleModal = useCallback(
-    (open: boolean) => {
+    async (open: boolean) => {
       if (open) {
         if (!isLogIn) {
           toast.error(
             'Не удалось оформить заказ. Пожалуйста, войдите в систему.',
           );
           navigate(Pages.login);
+          return;
         }
-        orderId = dispatch(postOrderDetails(ids));
+        
+        const resultAction = await dispatch(postOrderDetails(ids));
+        
+        if (postOrderDetails.fulfilled.match(resultAction)) {
+          orderId = resultAction.payload;
+        }
+        
         openModal();
       } else {
         dispatch(setOrderId(0));

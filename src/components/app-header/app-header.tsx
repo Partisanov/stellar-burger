@@ -10,7 +10,8 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../services/store.ts';
 import { Pages } from '../../utils/constants.ts';
 import { Link } from 'react-router-dom';
-export const AppHeader = () => {
+import React from 'react';
+export const AppHeader: React.FC = () => {
   const {
     user: { email },
   } = useSelector((state: RootState) => state.auth);

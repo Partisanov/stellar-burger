@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { postOrderDetails } from './action.ts';
 import { toast } from 'react-toastify';
 
-interface OrderState {
+export interface OrderState {
   ids: string[];
   totalAmount: number;
   currentOrderId: number;
