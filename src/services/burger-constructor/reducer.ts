@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice, nanoid } from '@reduxjs/toolkit';
 import { TData } from '../../utils/types.ts';
 
-interface BurgerConstructorState {
+export interface BurgerConstructorState {
   bun: null | TData;
   ingredients: TData[];
 }
@@ -63,4 +63,3 @@ export const {
   clearConstructorList,
 } = burgerConstructorSlice.actions;
 export const { getIngredients, getBun } = burgerConstructorSlice.selectors;
-export default burgerConstructorSlice.reducer;

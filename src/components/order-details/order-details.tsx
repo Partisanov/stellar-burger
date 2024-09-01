@@ -1,4 +1,5 @@
 import styles from './order-details.module.css';
+import React from 'react';
 
 interface IOrderDetailsProps {
   orderId: number;

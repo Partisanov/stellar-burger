@@ -10,7 +10,7 @@ interface IModalProps {
   onClose: () => void;
 }
 
-export const Modal = ({ caption, children, onClose }: IModalProps) => {
+export const Modal:React.FC<IModalProps> = ({ caption, children, onClose }) => {
   const modalRoot = document.getElementById('modal');
   const handleEsc = useCallback(
     (e: KeyboardEvent) => {
@@ -29,10 +29,9 @@ export const Modal = ({ caption, children, onClose }: IModalProps) => {
     };
   }, [handleEsc]);
 
-  const handleClose = (e: React.MouseEvent): void => {
-    e.stopPropagation();
+  const handleClose = useCallback(() => {
     onClose();
-  };
+  }, [onClose]);
 
   if (!modalRoot) {
     return null;

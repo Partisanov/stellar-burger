@@ -17,7 +17,7 @@ import {
 import { TData } from '../../utils/types.ts';
 import { IngredientItem } from './ingredient-item/ingregient-item.tsx';
 
-export const BurgerIngredients = () => {
+export const BurgerIngredients: React.FC = () => {
   const [current, setCurrent] = React.useState<TabEnum>(TabEnum.Buns);
   const ingredients = useSelector(getIngredients);
   const bun = useSelector(getBun);

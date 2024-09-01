@@ -30,7 +30,6 @@ import {
 } from './constructor-item/constructor-item.tsx';
 import { postOrderDetails } from '../../services/order/action.ts';
 import { Pages } from '../../utils/constants.ts';
-import { RootState } from '../../services/store.ts';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Preloader } from '../preloader/preloader.tsx';
@@ -47,7 +46,7 @@ export const BurgerConstructor: React.FC<IBurgerConstructorProps> = () => {
   const total = useSelector(getTotalAmount);
   const ids = useSelector(getIds);
   const { isLoading } = useSelector((state) => state.order);
-  const { isLogIn } = useSelector((state: RootState) => state.auth);
+  const { isLogIn } = useSelector((state) => state.auth);
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: TargetType.BurgerConstructor,
     collect: (monitor) => ({
@@ -75,15 +74,22 @@ export const BurgerConstructor: React.FC<IBurgerConstructorProps> = () => {
   const isActive = canDrop && isOver;
 
   const handleToggleModal = useCallback(
-    (open: boolean) => {
+    async (open: boolean) => {
       if (open) {
         if (!isLogIn) {
           toast.error(
             'Не удалось оформить заказ. Пожалуйста, войдите в систему.',
           );
           navigate(Pages.login);
+          return;
         }
-        orderId = dispatch(postOrderDetails(ids));
+        
+        const resultAction = await dispatch(postOrderDetails(ids));
+        
+        if (postOrderDetails.fulfilled.match(resultAction)) {
+          orderId = resultAction.payload;
+        }
+        
         openModal();
       } else {
         dispatch(setOrderId(0));

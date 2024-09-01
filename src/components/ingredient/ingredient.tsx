@@ -1,14 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../hooks/redux.ts';
 import { useLocation, useParams } from 'react-router-dom';
-import { RootState } from '../../services/store.ts';
 import { TData } from '../../utils/types.ts';
 import { IngredientDetails } from '../ingredient-details/ingredient-details.tsx';
 
-
 export const Ingredient: React.FC = () => {
   const location = useLocation();
-  const { ingredients } = useSelector((state: RootState) => state.ingredients);
+  const { ingredients } = useSelector((state) => state.ingredients);
   
   let { id } = useParams<{ id: string }>();
   if (!id && location.state?.id) {

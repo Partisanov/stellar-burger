@@ -1,10 +1,12 @@
+import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Pages } from '../../utils/constants.ts';
 import { useDispatch } from '../../hooks/redux.ts';
 import { logout } from '../../services/auth/action.ts';
 import styles from './profile-menu.module.css';
 
-export const ProfileMenu = () => {
+
+export const ProfileMenu:React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

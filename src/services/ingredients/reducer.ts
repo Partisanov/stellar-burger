@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 import { TData } from '../../utils/types.ts';
 import { fetchIngredients } from './action.ts';
 
-interface IngredientsState {
+export interface IngredientsState {
   ingredients: TData[];
   isLoading: boolean;
   error: null | string;
@@ -32,7 +32,7 @@ export const ingredientsSlice = createSlice({
       })
       .addCase(fetchIngredients.rejected, (state, { error }) => {
         state.isLoading = false;
-        state.error = error.message || null;
+        state.error = error.message || 'Не удалось загрузить ингредиенты';
       });
   },
   selectors: {

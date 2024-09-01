@@ -6,18 +6,17 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import { IInputInterface } from '../../utils/types.ts';
 import styles from './profile-user-info.module.css';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../services/store.ts';
+import { useSelector } from '../../hooks/redux.ts';
 import { useForm } from '../../hooks/useForm.ts';
 import { useDispatch } from '../../hooks/redux.ts';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { updateUser } from '../../services/auth/action.ts';
 import { toast } from 'react-toastify';
 import { AxiosError } from 'axios';
 
-export const ProfileUserInfo = () => {
+export const ProfileUserInfo:React.FC = () => {
   const dispatch = useDispatch();
-  const { user, isLoading } = useSelector((store: RootState) => store.auth);
+  const { user, isLoading } = useSelector((store) => store.auth);
   const initialFormValues = {
     name: user.name,
     email: user.email,
