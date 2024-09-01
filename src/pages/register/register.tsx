@@ -12,8 +12,7 @@ import { useForm } from '../../hooks/useForm.ts';
 import { register } from '../../services/auth/action.ts';
 import { useDispatch } from '../../hooks/redux.ts';
 import { IInputInterface, IRegisterForm } from '../../utils/types.ts';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../services/store.ts';
+import { useSelector } from '../../hooks/redux.ts';
 
 const initForm = {
   name: '',
@@ -29,7 +28,7 @@ export const RegisterPage = () => {
     [formValues.name, formValues.email, formValues.password],
   );
   const { isLoading, hasError, errorMessage } = useSelector(
-    (state: RootState) => state.auth,
+    (state) => state.auth,
   );
   const onSubmit = () => {
     dispatch(register(formValues as unknown as IRegisterForm));

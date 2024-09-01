@@ -6,15 +6,14 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './app-header.module.css';
 import { IconNavLink } from './icon-nav-link/icon-nav-link.tsx';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../services/store.ts';
+import { useSelector } from '../../hooks/redux.ts';
 import { Pages } from '../../utils/constants.ts';
 import { Link } from 'react-router-dom';
 import React from 'react';
 export const AppHeader: React.FC = () => {
   const {
     user: { email },
-  } = useSelector((state: RootState) => state.auth);
+  } = useSelector((state) => state.auth);
 
   return (
     <header className={`${styles.header} pb-4 pt-4`}>

@@ -8,8 +8,7 @@ import { Page } from '../../components/page/page.tsx';
 import { Link } from 'react-router-dom';
 import { Pages } from '../../utils/constants.ts';
 import { useForm } from '../../hooks/useForm.ts';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../services/store.ts';
+import { useSelector } from '../../hooks/redux.ts';
 import { ILoginForm } from '../../utils/types.ts';
 import { login } from '../../services/auth/action.ts';
 import { useDispatch } from '../../hooks/redux.ts';
@@ -23,7 +22,7 @@ export const LoginPage = () => {
   const dispatch = useDispatch();
   const { formValues, handleInputsChange, handleSubmit } = useForm(initForm);
   const { isLoading, hasError, errorMessage } = useSelector(
-    (state: RootState) => state.auth,
+    (state) => state.auth,
   );
 
   const isFormValid = useMemo(
