@@ -143,12 +143,14 @@ const App: React.FC = () => {
           <Route
             path={Pages.ordersId}
             element={
-              <Modal
-                caption={`#${location.state.id}`}
-                onClose={() => navigate(-1)}
-              >
-                <OrderInfo />
-              </Modal>
+              <ProtectedRoute>
+                <Modal
+                  caption={`#${location.state.id}`}
+                  onClose={() => navigate(-1)}
+                >
+                  <OrderInfo />
+                </Modal>
+              </ProtectedRoute>
             }
           />
           <Route
