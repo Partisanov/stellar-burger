@@ -5,8 +5,7 @@ import { useDispatch } from '../../hooks/redux.ts';
 import { logout } from '../../services/auth/action.ts';
 import styles from './profile-menu.module.css';
 
-
-export const ProfileMenu:React.FC = () => {
+export const ProfileMenu: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -34,7 +33,7 @@ export const ProfileMenu:React.FC = () => {
       </li>
       <li className={styles.item}>
         <NavLink
-          to='/profile/orders'
+          to={Pages.orders}
           end={true}
           className={({ isActive }) =>
             `${styles.link} item-link text text_type_main-medium ${isActive ? 'text_color_primary' : 'text_color_inactive'}`

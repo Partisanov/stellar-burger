@@ -1,0 +1,7 @@
+.content {
+  display: grid;
+  grid-template-columns: calc(50% - var(--offset-base-size) * 7.5) calc(
+      50% - var(--offset-base-size) * 7.5
+    );
+  gap: calc(var(--offset-base-size) * 15);
+}

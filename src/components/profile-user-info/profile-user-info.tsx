@@ -4,7 +4,6 @@ import {
   Input,
   PasswordInput,
 } from '@ya.praktikum/react-developer-burger-ui-components';
-import { IInputInterface } from '../../utils/types.ts';
 import styles from './profile-user-info.module.css';
 import { useSelector } from '../../hooks/redux.ts';
 import { useForm } from '../../hooks/useForm.ts';
@@ -14,7 +13,7 @@ import { updateUser } from '../../services/auth/action.ts';
 import { toast } from 'react-toastify';
 import { AxiosError } from 'axios';
 
-export const ProfileUserInfo:React.FC = () => {
+export const ProfileUserInfo: React.FC = () => {
   const dispatch = useDispatch();
   const { user, isLoading } = useSelector((store) => store.auth);
   const initialFormValues = {
@@ -70,17 +69,15 @@ export const ProfileUserInfo:React.FC = () => {
         onSubmit={handleSubmit(() => handlerSave())}
       >
         <Input
-          {...({
-            type: 'text',
-            name: 'name',
-            value: formValues.name,
-            onChange: (e) => handleInputsChange(e),
-            placeholder: 'Имя',
-            extraClass: 'mb-6',
-            size: 'default',
-            icon: 'EditIcon',
-            autoComplete: 'off',
-          } as IInputInterface)}
+          type='text'
+          name='name'
+          value={formValues.name}
+          onChange={(e) => handleInputsChange(e)}
+          placeholder='Имя'
+          extraClass='mb-6'
+          size='default'
+          icon='EditIcon'
+          autoComplete='off'
         />
 
         <EmailInput

@@ -9,7 +9,7 @@ interface IProtectedRoute {
   redirectPath?: Pages;
 }
 
-export const ProtectedRoute:React.FC<IProtectedRoute> = ({
+export const ProtectedRoute: React.FC<IProtectedRoute> = ({
   children,
   forAnonymous = false,
   redirectPath,

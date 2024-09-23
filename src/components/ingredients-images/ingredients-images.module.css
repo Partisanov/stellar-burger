@@ -1,0 +1,14 @@
+.wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 304px;
+}
+
+.count {
+  position: absolute;
+  color: var(--text-primary-light-standart-text);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

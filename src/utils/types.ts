@@ -1,5 +1,4 @@
 import React from 'react';
-import { TICons } from '@ya.praktikum/react-developer-burger-ui-components/dist/ui/icons';
 
 export type TBurgerIngredientType = 'bun' | 'sauce' | 'main';
 
@@ -76,22 +75,18 @@ export interface IApiResponse<T> {
   message?: string;
 }
 
-export interface IInputInterface
-  extends Omit<React.HTMLProps<HTMLInputElement>, 'size'> {
-  value: string;
-  type?: 'text' | 'email' | 'password';
-  placeholder?: string;
-  success?: boolean;
-  error?: boolean;
-  disabled?: boolean;
-  icon?: keyof TICons;
-  errorText?: string;
-  size?: 'default' | 'small';
-  extraClass?: string;
-  onChange(e: React.ChangeEvent<HTMLInputElement>): void;
-  onIconClick?(e: React.MouseEvent<HTMLDivElement>): void;
-  onBlur?(e?: React.FocusEvent<HTMLInputElement>): void;
-  onFocus?(e?: React.FocusEvent<HTMLInputElement>): void;
-  onPointerEnterCapture: unknown;
-  onPointerLeaveCapture: unknown;
-}
+export type TOrder = {
+  ingredients: string[];
+  _id: string;
+  status: string;
+  name: string;
+  number: number;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type TOrdersList = {
+  orders: TOrder[];
+  total: number;
+  totalToday: number;
+};

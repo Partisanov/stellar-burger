@@ -4,7 +4,9 @@ import React from 'react';
 interface IIngredientDetailsProps {
   item: TData;
 }
-export const IngredientDetails: React.FC<IIngredientDetailsProps> = ({ item }) => {
+export const IngredientDetails: React.FC<IIngredientDetailsProps> = ({
+  item,
+}) => {
   return (
     <>
       <div className={styles.details}>

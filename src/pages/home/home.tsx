@@ -9,7 +9,7 @@ export const HomePage = () => {
     (state) => state.ingredients,
   );
   const hasIngredients = ingredients.length > 0;
-  
+
   return (
     <Page>
       {isLoading && (

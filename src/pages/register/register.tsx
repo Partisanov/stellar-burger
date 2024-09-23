@@ -11,7 +11,7 @@ import { Pages } from '../../utils/constants.ts';
 import { useForm } from '../../hooks/useForm.ts';
 import { register } from '../../services/auth/action.ts';
 import { useDispatch } from '../../hooks/redux.ts';
-import { IInputInterface, IRegisterForm } from '../../utils/types.ts';
+import { IRegisterForm } from '../../utils/types.ts';
 import { useSelector } from '../../hooks/redux.ts';
 
 const initForm = {
@@ -43,15 +43,13 @@ export const RegisterPage = () => {
           className='form mb-20'
         >
           <Input
-            {...({
-              type: 'text',
-              name: 'name',
-              value: formValues.name,
-              onChange: (e) => handleInputsChange(e),
-              placeholder: 'Имя',
-              extraClass: 'mb-6',
-              size: 'default',
-            } as IInputInterface)}
+            name='name'
+            type='text'
+            value={formValues.name}
+            onChange={(e) => handleInputsChange(e)}
+            placeholder='Имя'
+            extraClass='mb-6'
+            size='default'
           />
           <EmailInput
             name='email'

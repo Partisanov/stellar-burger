@@ -6,7 +6,8 @@ import {
   IAxiosErrorResponse,
   ILoginForm,
   ILoginResponse,
-  IRegisterForm, IUser,
+  IRegisterForm,
+  IUser,
 } from '../../utils/types.ts';
 import {
   deleteTokens,
@@ -137,7 +138,7 @@ export const updateUser = createAsyncThunk<
   }
 });
 
-const refreshToken = async () => {
+export const refreshToken = async () => {
   try {
     const response = await axios.post<{
       accessToken: string;
@@ -158,12 +159,15 @@ export const getUser = createAsyncThunk(
       const accessToken = getAccessToken();
       if (!accessToken) return null;
 
-      const response = await axios.get<{ user: IUser }>(`${BASE_URL}/auth/user`, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: accessToken,
+      const response = await axios.get<{ user: IUser }>(
+        `${BASE_URL}/auth/user`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: accessToken,
+          },
         },
-      });
+      );
       return response.data.user;
     } catch (error) {
       if (axios.isAxiosError(error)) {

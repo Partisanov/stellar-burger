@@ -8,7 +8,7 @@ import { BASE_URL, Pages } from '../../utils/constants.ts';
 import { Page } from '../../components/page/page.tsx';
 import { useForm } from '../../hooks/useForm.ts';
 import { useEffect, useMemo, useState } from 'react';
-import { IAxiosErrorResponse, IInputInterface } from '../../utils/types.ts';
+import { IAxiosErrorResponse } from '../../utils/types.ts';
 import {
   clearResetPassword,
   getResetPassword,
@@ -91,17 +91,15 @@ export const ResetPasswordPage = () => {
             extraClass='pb-6'
           />
           <Input
-            {...({
-              name: 'token',
-              type: 'text',
-              onChange: (e) => handleInputsChange(e),
-              value: formValues.token,
-              placeholder: 'Введите код из письма',
-              error: false,
-              errorText: 'Ошибка',
-              size: 'default',
-              extraClass: 'pb-6',
-            } as IInputInterface)}
+            name='token'
+            type='text'
+            onChange={(e) => handleInputsChange(e)}
+            value={formValues.token}
+            placeholder='Введите код из письма'
+            error={false}
+            errorText='Ошибка'
+            size='default'
+            extraClass='pb-6'
           />
           {hasError && (
             <p className='text text_type_main-small mb-6 error'>

@@ -6,7 +6,7 @@ import { ResetPasswordPage } from './reset-password/reset-password.tsx';
 import { IngredientsPage } from './ingredients/ingredients.tsx';
 import { NotFoundPage } from './not-found/not-found';
 import { ProfilePage } from './profile/profile';
-import { OrderPage } from './order/order';
+import { FeedPage } from './feed/feed';
 export {
   HomePage,
   LoginPage,
@@ -16,5 +16,5 @@ export {
   IngredientsPage,
   NotFoundPage,
   ProfilePage,
-  OrderPage,
+  FeedPage,
 };

@@ -1,0 +1,16 @@
+.list {
+  max-height: 312px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.item {
+  gap: calc(var(--offset-base-size) * 4);
+}
+
+.name {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: auto;
+  max-width: 315px;
+}

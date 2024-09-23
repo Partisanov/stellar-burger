@@ -20,3 +20,27 @@ export const getArrayIds = (
     ...(bun ? [bun._id] : []),
   ];
 };
+
+export const getOrderIngredients = (
+  allIngredients: TData[],
+  orderIngredients: string[],
+): { ingredient: TData; count: number }[] => {
+  const ingredientCountMap = new Map<string, number>();
+
+  orderIngredients.forEach((id) => {
+    const currentCount = ingredientCountMap.get(id) || 0;
+    ingredientCountMap.set(id, currentCount + 1);
+  });
+
+  const result = allIngredients
+    .map((ingredient) => {
+      const count = ingredientCountMap.get(ingredient._id) || 0;
+      return count > 0 ? { ingredient, count } : null;
+    })
+    .filter((item) => item !== null) as { ingredient: TData; count: number }[];
+  result.sort((a, b) =>
+    a.ingredient.type === 'bun' ? -1 : b.ingredient.type === 'bun' ? 1 : 0,
+  );
+
+  return result;
+};
