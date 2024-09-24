@@ -51,8 +51,13 @@ export const ingredientsSlice = createSlice({
       (ingredients: TData[]) =>
         ingredients.filter((ingredient) => ingredient.type === 'main'),
     ),
+    getAllIngredients: (state) => state.ingredients,
   },
 });
 
-export const { getSauceIngredients, getBunIngredients, getMainIngredients } =
-  ingredientsSlice.selectors;
+export const {
+  getSauceIngredients,
+  getBunIngredients,
+  getMainIngredients,
+  getAllIngredients,
+} = ingredientsSlice.selectors;

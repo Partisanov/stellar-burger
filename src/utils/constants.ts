@@ -11,15 +11,30 @@ export const tabsLabels: Record<TabEnum, string> = {
 };
 
 export const BASE_URL = 'https://norma.nomoreparties.space/api';
-
+export const WS_BASE_URL = 'wss://norma.nomoreparties.space/orders';
 export enum Pages {
   home = '/',
   login = '/login',
   register = '/register',
-  order = '/order',
+  feeds = '/feed',
+  feedId = '/feed/:id',
   forgotPassword = '/forgot-password',
   resetPassword = '/reset-password',
   profile = '/profile',
+  orders = '/profile/orders',
+  ordersId = '/profile/orders/:id',
   ingredients = '/ingredients/:id',
+
   page404 = '/404',
+}
+export enum WebsocketStatus {
+  CONNECTING = 'CONNECTING...',
+  ONLINE = 'ONLINE',
+  OFFLINE = 'OFFLINE',
+}
+
+export enum ruStatus {
+  done = 'Выполнено',
+  pending = 'В ожидании',
+  canceled = 'Отменено',
 }

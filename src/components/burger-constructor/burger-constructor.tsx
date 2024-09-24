@@ -83,13 +83,13 @@ export const BurgerConstructor: React.FC<IBurgerConstructorProps> = () => {
           navigate(Pages.login);
           return;
         }
-        
+
         const resultAction = await dispatch(postOrderDetails(ids));
-        
+
         if (postOrderDetails.fulfilled.match(resultAction)) {
           orderId = resultAction.payload;
         }
-        
+
         openModal();
       } else {
         dispatch(setOrderId(0));

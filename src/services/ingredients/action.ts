@@ -10,7 +10,7 @@ interface IResponseApi {
 export const fetchIngredients = createAsyncThunk(
   'ingredients/fetchAll',
   async (_) => {
-      const response = await axios.get<IResponseApi>(`${BASE_URL}/ingredients`);
-      return response.data.data;
+    const response = await axios.get<IResponseApi>(`${BASE_URL}/ingredients`);
+    return response.data.data;
   },
 );

@@ -7,7 +7,7 @@ import { IngredientDetails } from '../ingredient-details/ingredient-details.tsx'
 export const Ingredient: React.FC = () => {
   const location = useLocation();
   const { ingredients } = useSelector((state) => state.ingredients);
-  
+
   let { id } = useParams<{ id: string }>();
   if (!id && location.state?.id) {
     id = location.state.id;

@@ -1,0 +1,19 @@
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 100px;
+  background: linear-gradient(60deg, #801ab2 0%, #4c4cff 100%);
+  overflow: hidden;
+}
+
+.icon img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  background: var(--interface-bg);
+}

@@ -31,7 +31,7 @@ export const AppHeader: React.FC = () => {
               <IconNavLink
                 icon={ListIcon}
                 text='Лента заказов'
-                to={Pages.order}
+                to={Pages.feeds}
               />
             </li>
           </ul>

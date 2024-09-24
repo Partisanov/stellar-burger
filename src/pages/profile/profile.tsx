@@ -12,7 +12,7 @@ export const ProfilePage: React.FC<IProfilePageProps> = () => {
     if (location.pathname === '/profile') {
       return 'В этом разделе вы можете изменить свои персональные данные';
     } else if (location.pathname === '/profile/orders') {
-      return 'В этом разделе вы можете посмотреть свои заказы';
+      return 'В этом разделе вы можете просмотреть свою историю заказов';
     } else {
       return '';
     }

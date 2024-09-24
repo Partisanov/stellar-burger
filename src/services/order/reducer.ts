@@ -1,11 +1,13 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { postOrderDetails } from './action.ts';
+import { getOrderByNumber, postOrderDetails } from './action.ts';
 import { toast } from 'react-toastify';
+import { TOrder } from '../../utils/types.ts';
 
 export interface OrderState {
   ids: string[];
   totalAmount: number;
   currentOrderId: number;
+  currentOrder: TOrder | null;
   isLoading: boolean;
   error: string | null;
 }
@@ -14,6 +16,7 @@ const initialState: OrderState = {
   ids: [],
   totalAmount: 0,
   currentOrderId: 0,
+  currentOrder: null,
   isLoading: false,
   error: null,
 };
@@ -36,7 +39,21 @@ export const orderSlice = createSlice({
       .addCase(postOrderDetails.rejected, (state, { error }) => {
         state.isLoading = false;
         state.error = error.message || 'Не удалось отправить заказ';
-        toast.error(`Ошибка при размещении заказа!`);
+        toast.error('Ошибка при размещении заказа!');
+      })
+      .addCase(getOrderByNumber.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getOrderByNumber.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.currentOrder = payload;
+      })
+      .addCase(getOrderByNumber.rejected, (state, { error }) => {
+        state.isLoading = false;
+        state.error = error.message || 'Не удалось отправить заказ';
+        toast.error('Ошибка при получении заказа!');
       });
   },
   selectors: {
