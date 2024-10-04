@@ -2,6 +2,9 @@
 
 Проект курса реакт-разработчик от Яндекс Практикума.
 Проект представляет собой космическую бургерную.
+## Демонстрация проекта
+ [stellar-burger](https://partisanov.github.io/stellar-burger/)
+
 
 ## Установка
 
@@ -15,7 +18,8 @@
 - `stylelint` — проверяет и исправляет проблемы в стилях (CSS, SCSS) с помощью Stylelint
 - `format` — форматирует весь проект с помощью Prettier
 - `preview` — запускает предпросмотр production-сборки с помощью Vite
-  Для сборки production:
+- `deploy` — 
+- Для сборки production:
 
 - `npm run build`
 

@@ -24,7 +24,7 @@ export const FeedPage: React.FC<IOrderPageProps> = () => {
   return (
     <Page>
       <div className='container pt-10 pr-5 pl-5'>
-        <h1 className='text text_type_main-large '>Соберите бургер</h1>
+        <h1 className='text text_type_main-large '>Лента заказов</h1>
         <div className={styles.content}>
           <OrdersHistoryList />
           <Stats />
