@@ -1,4 +1,4 @@
-# ya-practicum-react-burger
+# stellar-burger
 
 Проект курса реакт-разработчик от Яндекс Практикума.
 Проект представляет собой космическую бургерную.
@@ -11,7 +11,7 @@
 
 Для запуска проекта необходимо выполнить следующие команды:
 
-- `git clone git clone git@github.com:Partisanov/ya-practicum-react-burger.git` — клонировать репозиторий
+- `git clone git clone git@github.com:Partisanov/stellar-burger.git` — клонировать репозиторий
 - `npm install` — установить зависимости
 - `npm run dev` — запустить сборку в режиме разработки
 - `npm run lint` — запустить поиск и анализ потенциальных проблем в JavaScript файлах с помощью ESLint.
