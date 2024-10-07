@@ -12,8 +12,8 @@
     "format": "prettier --write .",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
-    "test": "jest --rootDir ./ --testMatch '**/src/**/*.test.ts?(x)'",
-    "cypress:open": "./node_modules/.bin/cypress open"
+    "test": "jest",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@babel/runtime": "^7.24.8",
