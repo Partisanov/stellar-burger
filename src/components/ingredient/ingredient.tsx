@@ -16,7 +16,7 @@ export const Ingredient: React.FC = () => {
   const data = ingredients.find((item: TData) => item._id === id) || null;
 
   if (!data) {
-    return <p className='text text_type_main-large'>Ingredient not found</p>;
+    return <p className="text text_type_main-large">Ingredient not found</p>;
   }
 
   return <IngredientDetails item={data} />;

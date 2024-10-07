@@ -11,7 +11,7 @@ export const Price: React.FC<IPriceProps> = ({ price }) => {
   return (
     <div className={styles.wrap}>
       <p className={'text text_type_digits-default pr-2'}>{price}</p>
-      <CurrencyIcon type='primary' />
+      <CurrencyIcon type="primary" />
     </div>
   );
 };

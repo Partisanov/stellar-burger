@@ -19,7 +19,7 @@ export const ProfileMenu: React.FC = () => {
   };
 
   return (
-    <ul className='mb-20'>
+    <ul className="mb-20">
       <li className={styles.item}>
         <NavLink
           to={Pages.profile}
@@ -44,7 +44,7 @@ export const ProfileMenu: React.FC = () => {
       </li>
       <li className={styles.item}>
         <Link
-          to='#'
+          to="#"
           onClick={handleLogout}
           className={`${styles.link} item-link text text_type_main-medium text_color_inactive`}
         >

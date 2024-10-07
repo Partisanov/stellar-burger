@@ -26,16 +26,16 @@ export const OrderHistoryItem: React.FC<IOrderHistoryItemProps> = ({
     >
       <div className={styles.wrap}>
         <div className={'space-between mb-6'}>
-          <p className='text text_type_digits-default'>#{number}</p>
-          <p className='text text_type_main-small text_color_inactive'>
+          <p className="text text_type_digits-default">#{number}</p>
+          <p className="text text_type_main-small text_color_inactive">
             {order.createdAt && new Date(createdAt).toLocaleString()}
           </p>
         </div>
         <div>
-          <p className='text text_type_main-medium'>{name}</p>
+          <p className="text text_type_main-medium">{name}</p>
         </div>
         {showStatus && (
-          <div className='mt-2'>
+          <div className="mt-2">
             <p
               className={`text text_type_main-default ${status == 'done' ? 'status-done' : ''}`}
             >

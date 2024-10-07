@@ -35,9 +35,9 @@ export const ConstructorItem: React.FC<IConstructorItemProps> = ({
       style={style}
       className={styles.element}
     >
-      <div className={styles.drag}>{isDrag && <DragIcon type='primary' />}</div>
+      <div className={styles.drag}>{isDrag && <DragIcon type="primary" />}</div>
       <ConstructorElement
-        extraClass='ml-8'
+        extraClass="ml-8"
         type={type}
         isLocked={isLocked}
         handleClose={handleClose}

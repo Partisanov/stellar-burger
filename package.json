@@ -2,7 +2,6 @@
   "name": "ya-practicum-react-burger",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "homepage": "https://partisanov.github.io/ya-practicum-react-burger",
   "scripts": {
     "dev": "vite --open",
@@ -13,6 +12,7 @@
     "format": "prettier --write .",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
+    "test": "jest --rootDir ./ --testMatch '**/src/**/*.test.ts?(x)'",
     "cypress:open": "./node_modules/.bin/cypress open"
   },
   "dependencies": {
@@ -37,6 +37,7 @@
   "devDependencies": {
     "@eslint/js": "9.7.0",
     "@testing-library/react": "^16.0.1",
+    "@types/jest": "^29.5.13",
     "@types/node": "20.14.12",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -60,6 +61,7 @@
     "stylelint-order": "^6.0.4",
     "stylelint-prettier": "^5.0.0",
     "stylelint-scss": "^6.2.1",
+    "ts-jest": "^29.2.5",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
   }

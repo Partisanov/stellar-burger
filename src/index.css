@@ -30,31 +30,31 @@
 
 @font-face {
   font-family: JetBrains Mono;
-  src: url('src/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+  src: url('../public/fonts/JetBrainsMono-Regular.woff2') format('woff2');
   font-weight: normal;
 }
 
 @font-face {
   font-family: JetBrains Mono;
-  src: url('src/fonts/JetBrainsMono-Bold.woff2') format('woff2');
+  src: url('../public/fonts/JetBrainsMono-Bold.woff2') format('woff2');
   font-weight: bold;
 }
 
 @font-face {
   font-family: Iceland;
-  src: url('src/fonts/Iceland-Regular.woff2') format('woff2');
+  src: url('../public/fonts/Iceland-Regular.woff2') format('woff2');
   font-weight: normal;
 }
 
 @font-face {
   font-family: IBM Plex Sans;
-  src: url('src/fonts/IBMPlexSans.woff2') format('woff2');
+  src: url('../public/fonts/IBMPlexSans.woff2') format('woff2');
   font-weight: normal;
 }
 
 @font-face {
   font-family: IBM Plex Sans;
-  src: url('src/fonts/IBMPlexSans-Bold.woff2') format('woff2');
+  src: url('../public/fonts/IBMPlexSans-Bold.woff2') format('woff2');
   font-weight: bold;
 }
 

@@ -77,48 +77,48 @@ export const ResetPasswordPage = () => {
 
   return (
     <Page>
-      <div className='wrapper'>
-        <h2 className='mb-6'>Восстановление пароля</h2>
+      <div className="wrapper">
+        <h2 className="mb-6">Восстановление пароля</h2>
         <form
           onSubmit={handleSubmit(() => onSubmit())}
-          className='form mb-20'
+          className="form mb-20"
         >
           <PasswordInput
-            name='password'
+            name="password"
             onChange={(e) => handleInputsChange(e)}
             value={formValues.password}
-            placeholder='Введите новый пароль'
-            extraClass='pb-6'
+            placeholder="Введите новый пароль"
+            extraClass="pb-6"
           />
           <Input
-            name='token'
-            type='text'
+            name="token"
+            type="text"
             onChange={(e) => handleInputsChange(e)}
             value={formValues.token}
-            placeholder='Введите код из письма'
+            placeholder="Введите код из письма"
             error={false}
-            errorText='Ошибка'
-            size='default'
-            extraClass='pb-6'
+            errorText="Ошибка"
+            size="default"
+            extraClass="pb-6"
           />
           {hasError && (
-            <p className='text text_type_main-small mb-6 error'>
+            <p className="text text_type_main-small mb-6 error">
               {errorMessage}
             </p>
           )}
           <Button
-            htmlType='submit'
-            size='medium'
-            extraClass='mb-6'
+            htmlType="submit"
+            size="medium"
+            extraClass="mb-6"
             disabled={isFormValid || isLoading}
           >
             Сохранить
           </Button>
         </form>
-        <p className='text text_type_main-default text_color_inactive pb-4'>
+        <p className="text text_type_main-default text_color_inactive pb-4">
           Вспомнили пароль?{' '}
           <Link
-            className='link'
+            className="link"
             to={Pages.login}
           >
             Войти

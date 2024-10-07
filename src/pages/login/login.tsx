@@ -36,54 +36,57 @@ export const LoginPage = () => {
 
   return (
     <Page>
-      <div className='wrapper'>
-        <h2 className='text text_type_main-medium mb-6'>Вход</h2>
+      <div className="wrapper">
+        <h2 className="text text_type_main-medium mb-6">Вход</h2>
         <form
           onSubmit={handleSubmit(() => onSubmit())}
-          className='form mb-20'
+          className="form mb-20"
         >
           <EmailInput
-            name='email'
+            name="email"
             value={formValues.email}
             onChange={(e) => handleInputsChange(e)}
             placeholder={'Укажите e-mail'}
-            extraClass='mb-6'
+            extraClass="mb-6"
+            data-testid="email-login-field"
           />
           <PasswordInput
-            name='password'
+            name="password"
             value={formValues.password}
             onChange={(e) => handleInputsChange(e)}
             placeholder={'Пароль'}
-            extraClass='mb-6'
+            extraClass="mb-6"
             icon={'ShowIcon'}
+            data-testid="password-login-field"
           />
           {hasError && (
-            <p className='text text_type_main-small mb-6 error'>
+            <p className="text text_type_main-small mb-6 error">
               {errorMessage}
             </p>
           )}
           <Button
-            htmlType='submit'
-            size='medium'
-            extraClass='mb-6'
+            htmlType="submit"
+            size="medium"
+            extraClass="mb-6"
             disabled={isFormValid || isLoading}
+            data-testid="login-submit-btn"
           >
             Войти
           </Button>
         </form>
-        <p className='text text_type_main-default text_color_inactive pb-4'>
+        <p className="text text_type_main-default text_color_inactive pb-4">
           Вы — новый пользователь?{' '}
           <Link
-            className='link'
+            className="link"
             to={Pages.register}
           >
             Зарегистрироваться
           </Link>
         </p>
-        <p className='text text_type_main-default text_color_inactive pb-4'>
+        <p className="text text_type_main-default text_color_inactive pb-4">
           Забыли пароль?{' '}
           <Link
-            className='link'
+            className="link"
             to={Pages.forgotPassword}
           >
             Восстановить пароль

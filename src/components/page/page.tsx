@@ -5,9 +5,9 @@ interface MainProps {
 }
 
 export const Page: React.FC<MainProps> = ({ children }) => (
-  <main className='main mb-10'>
+  <main className="main mb-10">
     <section>
-      <div className='container'>{children}</div>
+      <div className="container">{children}</div>
     </section>
   </main>
 );

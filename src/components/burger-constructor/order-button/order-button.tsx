@@ -18,15 +18,16 @@ export const OrderButton: React.FC<IOrderButtonProps> = ({
 }) => {
   return (
     <div className={styles.order}>
-      <p className='text text_type_digits-medium mr-2'>{price}</p>
-      <CurrencyIcon type='primary' />
+      <p className="text text_type_digits-medium mr-2">{price}</p>
+      <CurrencyIcon type="primary" />
       <Button
-        htmlType='button'
-        type='primary'
-        size='large'
-        extraClass='ml-10 mr-8'
+        htmlType="button"
+        type="primary"
+        size="large"
+        extraClass="ml-10 mr-8"
         onClick={onClick}
         disabled={disabled}
+        data-testid="order-button"
       >
         Оформить заказ
       </Button>

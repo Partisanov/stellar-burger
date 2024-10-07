@@ -23,14 +23,14 @@ export const AppHeader: React.FC = () => {
             <li>
               <IconNavLink
                 icon={BurgerIcon}
-                text='Конструктор'
+                text="Конструктор"
                 to={Pages.home}
               />
             </li>
             <li>
               <IconNavLink
                 icon={ListIcon}
-                text='Лента заказов'
+                text="Лента заказов"
                 to={Pages.feeds}
               />
             </li>

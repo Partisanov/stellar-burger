@@ -64,37 +64,37 @@ export const ForgotPasswordPage = () => {
 
   return (
     <Page>
-      <div className='wrapper'>
-        <h2 className='mb-6'>Восстановление пароля</h2>
+      <div className="wrapper">
+        <h2 className="mb-6">Восстановление пароля</h2>
         <form
           onSubmit={handleSubmit(() => onSubmit())}
-          className='form mb-20'
+          className="form mb-20"
         >
           <EmailInput
-            name='email'
+            name="email"
             value={formValues.email}
             onChange={(e) => handleInputsChange(e)}
             placeholder={'Укажите e-mail'}
-            extraClass='mb-6'
+            extraClass="mb-6"
           />
           {hasError && (
-            <p className='text text_type_main-small mb-6 error'>
+            <p className="text text_type_main-small mb-6 error">
               {errorMessage}
             </p>
           )}
           <Button
-            htmlType='submit'
-            size='medium'
-            extraClass='mb-6'
+            htmlType="submit"
+            size="medium"
+            extraClass="mb-6"
             disabled={!formValues.email || isLoading}
           >
             Восстановить
           </Button>
         </form>
-        <p className='text text_type_main-default text_color_inactive pb-4'>
+        <p className="text text_type_main-default text_color_inactive pb-4">
           Вспомнили пароль?{' '}
           <Link
-            className='link'
+            className="link"
             to={Pages.login}
           >
             Войти

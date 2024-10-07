@@ -123,7 +123,7 @@ const App: React.FC = () => {
         />
 
         <Route
-          path='*'
+          path="*"
           element={<NotFoundPage />}
         />
       </Routes>
@@ -133,7 +133,7 @@ const App: React.FC = () => {
             path={Pages.ingredients}
             element={
               <Modal
-                caption='Детали ингредиента'
+                caption="Детали ингредиента"
                 onClose={() => navigate(-1)}
               >
                 <Ingredient />
@@ -166,7 +166,7 @@ const App: React.FC = () => {
           />
         </Routes>
       )}
-      <ToastContainer position='top-right' />
+      <ToastContainer position="top-right" />
     </>
   );
 };

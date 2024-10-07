@@ -1,11 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { TData } from '../../utils/types.ts';
+import { TData } from '../../utils/types';
 
 export interface ChosenIngredientState {
   ingredient: TData | null;
 }
 
-const initialState: ChosenIngredientState = {
+export const initialState: ChosenIngredientState = {
   ingredient: null,
 };
 
