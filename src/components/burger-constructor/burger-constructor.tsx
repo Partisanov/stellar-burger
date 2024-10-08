@@ -104,6 +104,7 @@ export const BurgerConstructor: React.FC<IBurgerConstructorProps> = () => {
     <div
       className={`${styles.wrapper}  ${isActive ? styles.active : ''} pl-4`}
       ref={drop}
+      data-cy="constructor"
     >
       {/*top bun*/}
       <div className={`${styles.item} mb-4 pr-4`}>
@@ -111,7 +112,7 @@ export const BurgerConstructor: React.FC<IBurgerConstructorProps> = () => {
           <ConstructorItem
             item={bun}
             isLocked={true}
-            type='top'
+            type="top"
           />
         ) : (
           <div className={`${styles.topElement} ml-8`}>Булка не выбрана</div>
@@ -146,7 +147,7 @@ export const BurgerConstructor: React.FC<IBurgerConstructorProps> = () => {
           <ConstructorItem
             item={bun}
             isLocked={true}
-            type='bottom'
+            type="bottom"
           />
         ) : (
           <div className={`${styles.bottomElement} ml-8`}>Булка не выбрана</div>
@@ -157,7 +158,7 @@ export const BurgerConstructor: React.FC<IBurgerConstructorProps> = () => {
         price={total}
         disabled={!bun || isLoading}
       />
-      {isOrderLoading && <Preloader title='Создание заказа...' />}
+      {isOrderLoading && <Preloader title="Создание заказа..." />}
       {!!orderId && !isOrderLoading && isModalOpen && (
         <Modal onClose={() => handleToggleModal(false)}>
           <OrderDetails orderId={orderId} />

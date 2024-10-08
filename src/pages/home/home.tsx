@@ -13,23 +13,23 @@ export const HomePage = () => {
   return (
     <Page>
       {isLoading && (
-        <div className='message-container'>
+        <div className="message-container">
           <p>Загрузка...</p>
         </div>
       )}
       {!isLoading && error && (
-        <div className='message-container'>
+        <div className="message-container">
           <p>Произошла ошибка загрузки</p>
         </div>
       )}
       {!isLoading && !error && !hasIngredients && (
-        <div className='message-container'>
+        <div className="message-container">
           <p>Нет ингредиентов</p>
         </div>
       )}
       {hasIngredients && (
-        <div className='container pt-10 pr-5 pl-5'>
-          <h1 className='text text_type_main-large mb-5'>Соберите бургер</h1>
+        <div className="container pt-10 pr-5 pl-5">
+          <h1 className="text text_type_main-large mb-5">Соберите бургер</h1>
           <div className={styles.content}>
             <BurgerIngredients />
             <BurgerConstructor />

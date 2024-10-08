@@ -11,7 +11,7 @@ export const OrderInfoPage: React.FC = () => {
     <Page>
       <div className={styles.wrapper}>
         <div className={styles.content}>
-          <h2 className='text text_type_digits-medium'>#{id}</h2>
+          <h2 className="text text_type_digits-medium">#{id}</h2>
           <OrderInfo />
         </div>
       </div>

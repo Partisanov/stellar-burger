@@ -32,7 +32,7 @@ const HistoryList: React.FC = () => {
 
   return (
     <div className={styles.wrap}>
-      <ul className='custom-scroll pr-2'>
+      <ul className="custom-scroll pr-2">
         {orders.map((order: TOrder) => {
           return (
             <li key={order._id}>

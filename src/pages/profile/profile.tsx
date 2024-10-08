@@ -23,7 +23,7 @@ export const ProfilePage: React.FC<IProfilePageProps> = () => {
       <div className={styles.wrapper}>
         <div className={`${styles.menu} mr-15`}>
           <ProfileMenu />
-          <p className='text text_type_main-default text_color_inactive'>
+          <p className="text text_type_main-default text_color_inactive">
             {renderText()}
           </p>
         </div>

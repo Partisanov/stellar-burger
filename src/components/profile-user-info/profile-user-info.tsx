@@ -65,52 +65,52 @@ export const ProfileUserInfo: React.FC = () => {
   return (
     <div>
       <form
-        className='form'
+        className="form"
         onSubmit={handleSubmit(() => handlerSave())}
       >
         <Input
-          type='text'
-          name='name'
+          type="text"
+          name="name"
           value={formValues.name}
           onChange={(e) => handleInputsChange(e)}
-          placeholder='Имя'
-          extraClass='mb-6'
-          size='default'
-          icon='EditIcon'
-          autoComplete='off'
+          placeholder="Имя"
+          extraClass="mb-6"
+          size="default"
+          icon="EditIcon"
+          autoComplete="off"
         />
 
         <EmailInput
-          name='email'
+          name="email"
           value={formValues.email}
           onChange={(e) => handleInputsChange(e)}
           placeholder={'E-mail'}
-          extraClass='mb-6'
+          extraClass="mb-6"
           isIcon={true}
         />
         <PasswordInput
-          name='password'
+          name="password"
           value={formValues.password}
           onChange={(e) => handleInputsChange(e)}
           placeholder={'Пароль'}
-          extraClass='mb-6'
+          extraClass="mb-6"
           icon={'EditIcon'}
         />
         {isChanged && (
           <div className={styles.buttons}>
             <Button
-              htmlType='button'
-              type='secondary'
-              size='medium'
-              extraClass='mr-5'
+              htmlType="button"
+              type="secondary"
+              size="medium"
+              extraClass="mr-5"
               onClick={handlerReset}
               disabled={isLoading || !isChanged}
             >
               Отмена
             </Button>
             <Button
-              htmlType='submit'
-              size='medium'
+              htmlType="submit"
+              size="medium"
               disabled={isLoading || !isChanged}
             >
               Сохранить

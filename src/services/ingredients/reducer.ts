@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
-import { TData } from '../../utils/types.ts';
-import { fetchIngredients } from './action.ts';
+import { TData } from '../../utils/types';
+import { fetchIngredients } from './action';
 
 export interface IngredientsState {
   ingredients: TData[];
@@ -9,7 +9,7 @@ export interface IngredientsState {
   error: null | string;
 }
 
-const initialState: IngredientsState = {
+export const initialState: IngredientsState = {
   ingredients: [],
   isLoading: true,
   error: null,

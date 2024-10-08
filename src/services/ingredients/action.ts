@@ -1,6 +1,6 @@
-import { TData } from '../../utils/types.ts';
+import { TData } from '../../utils/types';
 import axios from 'axios';
-import { BASE_URL } from '../../utils/constants.ts';
+import { BASE_URL } from '../../utils/constants';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 interface IResponseApi {

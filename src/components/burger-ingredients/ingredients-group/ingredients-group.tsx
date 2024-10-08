@@ -16,7 +16,7 @@ export const IngredientsGroup: React.FC<IIngredientsGroupProps> = ({
 }) => {
   return (
     <li
-      className='pt-10 pb-10'
+      className="pt-10 pb-10"
       ref={refSection}
       data-tab={tab}
     >

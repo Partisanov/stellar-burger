@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { getOrderByNumber, postOrderDetails } from './action.ts';
+import { getOrderByNumber, postOrderDetails } from './action';
 import { toast } from 'react-toastify';
-import { TOrder } from '../../utils/types.ts';
+import { TOrder } from '../../utils/types';
 
 export interface OrderState {
   ids: string[];
@@ -12,7 +12,7 @@ export interface OrderState {
   error: string | null;
 }
 
-const initialState: OrderState = {
+export const initialState: OrderState = {
   ids: [],
   totalAmount: 0,
   currentOrderId: 0,

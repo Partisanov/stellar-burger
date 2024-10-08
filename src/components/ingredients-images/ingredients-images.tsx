@@ -40,7 +40,7 @@ export const IngredientsImages: React.FC<IIngredientIconProps> = ({
                       zIndex: maxVisibleImages + 1,
                     }}
                   >
-                    <p className='text text_type_digits-default'>
+                    <p className="text text_type_digits-default">
                       +{remainingCount}
                     </p>
                   </div>

@@ -1,21 +1,28 @@
-# ya-practicum-react-burger
+# stellar-burger
 
 Проект курса реакт-разработчик от Яндекс Практикума.
 Проект представляет собой космическую бургерную.
+
+## Демонстрация проекта
+
+[stellar-burger](https://partisanov.github.io/stellar-burger/)
 
 ## Установка
 
 Для запуска проекта необходимо выполнить следующие команды:
 
-- `git clone git clone git@github.com:Partisanov/ya-practicum-react-burger.git` — клонировать репозиторий
+- `git clone git clone git@github.com:Partisanov/stellar-burger.git` — клонировать репозиторий
 - `npm install` — установить зависимости
 - `npm run dev` — запустить сборку в режиме разработки
 - `npm run lint` — запустить поиск и анализ потенциальных проблем в JavaScript файлах с помощью ESLint.
-- `lint:fix` — автоматически исправляет проблемы, найденные ESLint, в файлах `src/**/*.{ts,tsx,js,jsx,json}`
-- `stylelint` — проверяет и исправляет проблемы в стилях (CSS, SCSS) с помощью Stylelint
-- `format` — форматирует весь проект с помощью Prettier
-- `preview` — запускает предпросмотр production-сборки с помощью Vite
-  Для сборки production:
+- `npm run lint:fix` — автоматически исправляет проблемы, найденные ESLint, в файлах `src/**/*.{ts,tsx,js,jsx,json}`
+- `npm run stylelint` — проверяет и исправляет проблемы в стилях (CSS, SCSS) с помощью Stylelint
+- `npm run format` — форматирует весь проект с помощью Prettier
+- `npm run preview` — запускает предпросмотр production-сборки с помощью Vite
+- `npm run deploy` — деплой проекта на Github Pages
+- `npm run test` — запускает юнит тесты на Jest
+- `npm run cypress:open` — запускает e2e тесты на Cypress
+- Для сборки production:
 
 - `npm run build`
 

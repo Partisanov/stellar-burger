@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { BASE_URL } from '../../utils/constants.ts';
+import { BASE_URL } from '../../utils/constants';
 import {
   IApiError,
   IAxiosErrorResponse,
@@ -8,13 +8,13 @@ import {
   ILoginResponse,
   IRegisterForm,
   IUser,
-} from '../../utils/types.ts';
+} from '../../utils/types';
 import {
   deleteTokens,
   getAccessToken,
   getRefreshToken,
   setTokens,
-} from '../../utils/local-storage.ts';
+} from '../../utils/local-storage';
 import { toast } from 'react-toastify';
 
 export const login = createAsyncThunk<

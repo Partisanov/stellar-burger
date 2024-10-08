@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { BASE_URL } from '../../utils/constants.ts';
-import { getAccessToken } from '../../utils/local-storage.ts';
-import { TOrder } from '../../utils/types.ts';
+import { BASE_URL } from '../../utils/constants';
+import { getAccessToken } from '../../utils/local-storage';
+import { TOrder } from '../../utils/types';
 
 interface IOrderResponse {
   success: boolean;

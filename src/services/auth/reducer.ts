@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { getUser, login, logout, register, updateUser } from './action';
-import { IApiError, ILoginResponse, IUser } from '../../utils/types.ts';
+import { IApiError, ILoginResponse, IUser } from '../../utils/types';
 
 export interface AuthState {
   user: {
@@ -13,7 +13,7 @@ export interface AuthState {
   errorMessage: string | null;
 }
 
-const initialState: AuthState = {
+export const initialState: AuthState = {
   user: {
     email: null,
     name: null,

@@ -53,22 +53,23 @@ export const IngredientItem: React.FC<IIngredientItem> = ({ item, count }) => {
         className={styles.item}
         ref={dragRef}
         style={{ opacity }}
+        data-testid={`ingredient-${item._id}`}
       >
-        <div className='pl-4 pr-4 mb-1'></div>
+        <div className="pl-4 pr-4 mb-1"></div>
         <img
           src={item.image}
           alt={item.name}
         />
         <div className={`${styles.price} mb-1`}>
           <p className={'text text_type_digits-default mr-2'}>{item.price}</p>
-          <CurrencyIcon type='primary' />
+          <CurrencyIcon type="primary" />
         </div>
-        <p className='text text_type_main-small'>{item.name}</p>
+        <p className="text text_type_main-small">{item.name}</p>
         {!!count && (
           <div className={styles.counter}>
             <Counter
               count={count}
-              size='small'
+              size="small"
             />
           </div>
         )}

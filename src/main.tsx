@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
       <DndProvider backend={HTML5Backend}>
-        <Router>
+        <Router basename={import.meta.env.BASE_URL}>
           <App />
         </Router>
       </DndProvider>

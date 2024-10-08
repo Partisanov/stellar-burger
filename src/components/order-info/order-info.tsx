@@ -46,7 +46,7 @@ export const OrderInfo: React.FC<IOrderInfoProps> = () => {
 
   if (!order)
     return (
-      <p className='text text_type_main-medium pt-15 pr-10 pb-10 pl-10'>
+      <p className="text text_type_main-medium pt-15 pr-10 pb-10 pl-10">
         Загрузка...
       </p>
     );
@@ -65,8 +65,8 @@ export const OrderInfo: React.FC<IOrderInfoProps> = () => {
   const totalPrice = getTotalPrice(orderIngredients);
 
   return (
-    <div className='pt-15 pr-10 pb-10 pl-10'>
-      <h2 className='mb-3 text text_type_main-medium'>{name}</h2>
+    <div className="pt-15 pr-10 pb-10 pl-10">
+      <h2 className="mb-3 text text_type_main-medium">{name}</h2>
       <p
         className={`text text_type_main-default ${
           status === 'done' ? 'status-done' : ''
@@ -74,8 +74,8 @@ export const OrderInfo: React.FC<IOrderInfoProps> = () => {
       >
         {ruStatus[status as keyof typeof ruStatus] || order.status}
       </p>
-      <div className='mt-15 mb-10'>
-        <p className='mb-6 text text_type_main-medium'>Состав:</p>
+      <div className="mt-15 mb-10">
+        <p className="mb-6 text text_type_main-medium">Состав:</p>
         <ul className={`${styles.list} custom-scroll pr-6`}>
           {orderIngredients.map(({ ingredient, count }) => {
             const { name, image, price } = ingredient;
@@ -97,8 +97,8 @@ export const OrderInfo: React.FC<IOrderInfoProps> = () => {
           })}
         </ul>
       </div>
-      <div className='space-between'>
-        <p className='text text_type_main-small text_color_inactive'>
+      <div className="space-between">
+        <p className="text text_type_main-small text_color_inactive">
           {new Date(createdAt).toLocaleString()}
         </p>
         <Price price={totalPrice} />

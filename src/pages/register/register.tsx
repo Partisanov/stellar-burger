@@ -36,54 +36,54 @@ export const RegisterPage = () => {
 
   return (
     <Page>
-      <div className='wrapper'>
-        <h2 className='text text_type_main-medium mb-6'>Регистрация</h2>
+      <div className="wrapper">
+        <h2 className="text text_type_main-medium mb-6">Регистрация</h2>
         <form
           onSubmit={handleSubmit(() => onSubmit())}
-          className='form mb-20'
+          className="form mb-20"
         >
           <Input
-            name='name'
-            type='text'
+            name="name"
+            type="text"
             value={formValues.name}
             onChange={(e) => handleInputsChange(e)}
-            placeholder='Имя'
-            extraClass='mb-6'
-            size='default'
+            placeholder="Имя"
+            extraClass="mb-6"
+            size="default"
           />
           <EmailInput
-            name='email'
+            name="email"
             value={formValues.email}
             onChange={(e) => handleInputsChange(e)}
             placeholder={'Укажите e-mail'}
-            extraClass='mb-6'
+            extraClass="mb-6"
           />
           <PasswordInput
-            name='password'
+            name="password"
             value={formValues.password}
             onChange={(e) => handleInputsChange(e)}
             placeholder={'Пароль'}
-            extraClass='mb-6'
+            extraClass="mb-6"
             icon={'ShowIcon'}
           />
           {hasError && (
-            <p className='text text_type_main-small mb-6 error'>
+            <p className="text text_type_main-small mb-6 error">
               {errorMessage}
             </p>
           )}
           <Button
-            htmlType='submit'
-            size='medium'
-            extraClass='mb-6'
+            htmlType="submit"
+            size="medium"
+            extraClass="mb-6"
             disabled={isFormValid || isLoading}
           >
             Зарегистрироваться
           </Button>
         </form>
-        <p className='text text_type_main-default text_color_inactive pb-4'>
+        <p className="text text_type_main-default text_color_inactive pb-4">
           Уже зарегистрированы??{' '}
           <Link
-            className='link'
+            className="link"
             to={Pages.login}
           >
             Войти

@@ -23,22 +23,22 @@ export const Stats: React.FC<IStatsProps> = () => {
     <section className={styles.stats}>
       <div className={`${styles['boards-wrap']} mb-15`}>
         <StatsBoard
-          title='Готовы'
+          title="Готовы"
           orders={ordersIsDone}
           isDone={true}
         />
         <StatsBoard
-          title='В работе'
+          title="В работе"
           orders={ordersInWork}
         />
       </div>
-      <div className='mb-15'>
-        <p className='text text_type_main-medium'>Выполнено за все время:</p>
-        <p className='text text_type_digits-large'>{totalOrders}</p>
+      <div className="mb-15">
+        <p className="text text_type_main-medium">Выполнено за все время:</p>
+        <p className="text text_type_digits-large">{totalOrders}</p>
       </div>
       <div>
-        <p className='text text_type_main-medium'>Выполнено за сегодня:</p>
-        <p className='text text_type_digits-large'>{totalTodayOrders}</p>
+        <p className="text text_type_main-medium">Выполнено за сегодня:</p>
+        <p className="text text_type_digits-large">{totalTodayOrders}</p>
       </div>
     </section>
   );
