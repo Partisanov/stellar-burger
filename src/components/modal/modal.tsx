@@ -43,13 +43,13 @@ export const Modal: React.FC<IModalProps> = ({
 
   return createPortal(
     <div>
-      <div className={styles.dialog} data-testid="modal">
+      <div className={styles.dialog} data-cy="modal">
         <div className={`${styles.header} ml-10 mt-10 mr-10`}>
           <div className=" text text_type_main-large">{caption}</div>
           <div
             className={styles['close-btn']}
             onClick={handleClose}
-            data-testid="close-modal-btn"
+            data-cy="close-modal-btn"
           >
             <CloseIcon type="primary" />
           </div>

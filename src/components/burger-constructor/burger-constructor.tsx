@@ -104,7 +104,7 @@ export const BurgerConstructor: React.FC<IBurgerConstructorProps> = () => {
     <div
       className={`${styles.wrapper}  ${isActive ? styles.active : ''} pl-4`}
       ref={drop}
-      data-testid="constructor"
+      data-cy="constructor"
     >
       {/*top bun*/}
       <div className={`${styles.item} mb-4 pr-4`}>

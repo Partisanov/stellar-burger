@@ -27,7 +27,7 @@ export const OrderButton: React.FC<IOrderButtonProps> = ({
         extraClass="ml-10 mr-8"
         onClick={onClick}
         disabled={disabled}
-        data-testid="order-button"
+        data-cy="order-button"
       >
         Оформить заказ
       </Button>
